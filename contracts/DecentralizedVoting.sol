@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-
-contract DecentralizedVoting is ReentrancyGuard {
+contract DecentralizedVoting {
     address public owner;
     bool public votingStarted;
     uint public votingEndTime;
@@ -20,6 +18,7 @@ contract DecentralizedVoting is ReentrancyGuard {
     mapping(address => bool) public voters;
     mapping(address => bool) public candidatesAddress;
     mapping(address => bool) public admins;
+    mapping(address => bool) public hasVoted;
 
     event Voted(address indexed voter, uint indexed candidateId);
     event VotingStarted(uint indexed votingStartTime);
@@ -40,6 +39,7 @@ contract DecentralizedVoting is ReentrancyGuard {
 
     modifier onlyVoter() {
         require(voters[msg.sender], "Only voter can call this function");
+        require(!hasVoted[msg.sender], "Voter has already voted");
         _;
     }
 
@@ -102,13 +102,10 @@ contract DecentralizedVoting is ReentrancyGuard {
         emit AdminAdded(_adminAddress);
     }
 
-    function vote(uint _candidateId) public onlyVoter votingOpen nonReentrant {
+    function vote(uint _candidateId) public onlyVoter votingOpen {
         require(_candidateId < candidates.length, "Invalid candidate ID");
 
-        // Mark the voter as having voted
-        voters[msg.sender] = false; // Prevent double voting
-
-        // Update candidate's vote count
+        hasVoted[msg.sender] = true; // Prevent double voting
         candidates[_candidateId].voteCount++;
         totalVotes++;
 
@@ -129,7 +126,7 @@ contract DecentralizedVoting is ReentrancyGuard {
     }
 
     function getVoterStatus(address _voterAddress) public view returns (bool) {
-        return voters[_voterAddress];
+        return voters[_voterAddress] && !hasVoted[_voterAddress];
     }
 
     function getCandidates() public view returns (Candidate[] memory) {
