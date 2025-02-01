@@ -100,41 +100,48 @@ The core of the system is a Solidity smart contract. Below are its key component
 - [MetaMask](https://metamask.io/) (for interacting with the blockchain)
 
 ### Steps
-1. Clone the repository:
-  `git clone https://github.com/your-username/decentralized-voting-system.git`
-   `cd decentralized-voting-system`
-2. Install dependencies:
+1. **Clone the repository**:
+  - `git clone https://github.com/your-username/decentralized-voting-system.git`
+  - `cd decentralized-voting-system`
+2. **Install dependencies**:
    `npm install`
-3. Compile the smart contract:
+3. **Compile the smart contract**:
   `truffle compile`
-4. Deploy the contract to a local blockchain (e.g., Ganache):
+4. **Deploy the contract to a local blockchain (e.g., Ganache)**:
     `truffle migrate`
-5. Interact with the contract using Truffle Console or a frontend application:
+5. **Interact with the contract using Truffle Console or a frontend application**:
   `truffle console`
-6. Run tests:
+6. **Run tests**:
   `truffle test`
 ---
  ## Future Enhancements
+ 
  ### 1. Quadratic Voting:
   
   Implement quadratic voting to allow voters to express the intensity of their preferences.
   
- ###2. Delegated Voting:
+### 2. Delegated Voting:
   
   Allow voters to delegate their votes to trusted representatives.
   
-  ###3. Multi-Chain Support:
+### 3. Multi-Chain Support:
   
   Extend the system to work on multiple blockchains for increased decentralization.
   
- ###4. Identity Verification:
-  
+### 4. Identity Verification:
+
   Integrate with decentralized identity solutions (e.g., DID) to ensure only eligible voters can participate.
+  
 ---
-##License
+
+## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-##Contributing
+## Contributing
+
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-##Contact
-For any issues or compliments reach out to me at muaemmanuel2022@gmail.com
+
+## Contact
+
+For any issues or compliments reach out to me [here](muaemmanuel2022@gmail.com)
