@@ -101,7 +101,7 @@ The core of the system is a Solidity smart contract. Below are its key component
 
 ### Steps
 1. **Clone the repository**:
-  - `git clone https://github.com/your-username/decentralized-voting-system.git`
+  - `git clone https://github.com/mua2022/decentralized-voting-system.git`
   - `cd decentralized-voting-system`
 2. **Install dependencies**:
    `npm install`
