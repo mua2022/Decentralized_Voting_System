@@ -101,24 +101,18 @@ The core of the system is a Solidity smart contract. Below are its key component
 
 ### Steps
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/decentralized-voting-system.git
-   cd decentralized-voting-system
+  `git clone https://github.com/your-username/decentralized-voting-system.git`
+   `cd decentralized-voting-system`
 2. Install dependencies:
-    ```bash
-    npm install
+   `npm install`
 3. Compile the smart contract:
-   ```bash
-  truffle compile
+  `truffle compile`
 4. Deploy the contract to a local blockchain (e.g., Ganache):
-    ```bash
-    truffle migrate
+    `truffle migrate`
 5. Interact with the contract using Truffle Console or a frontend application:
-  ```bash
-  truffle console
+  `truffle console`
 6. Run tests:
-   ``bash
-  truffle test
+  `truffle test`
 ---
  ## Future Enhancements
  ### 1. Quadratic Voting:
@@ -142,3 +136,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ##Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+##Contact
+For any issues or compliments reach out to me at muaemmanuel2022@gmail.com
