@@ -1,0 +1,24 @@
+{
+  "name": "decentralized_voting_system",
+  "version": "1.0.0",
+  "description": "This project implements a decentralized voting system using Solidity, designed to ensure transparency, security, and immutability. The system runs on the Ethereum blockchain, allowing voters to cast their votes in a trustless and tamper-proof environment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mua2022/Decentralized_Voting_System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mua2022/Decentralized_Voting_System/issues"
+  },
+  "homepage": "https://github.com/mua2022/Decentralized_Voting_System#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.18"
+  }
+}
