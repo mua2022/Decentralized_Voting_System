@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 contract DecentralizedVoting {
     address public owner;
     bool public votingStarted;
+    bool public votingEnded; // Added this state variable
     uint public votingEndTime;
     uint public totalVotes;
     uint public totalVoters;
@@ -45,6 +46,7 @@ contract DecentralizedVoting {
 
     modifier votingOpen() {
         require(votingStarted, "Voting has not started");
+        require(!votingEnded, "Voting has ended");
         require(block.timestamp < votingEndTime, "Voting period has ended");
         _;
     }
@@ -80,9 +82,12 @@ contract DecentralizedVoting {
         emit VotingStarted(block.timestamp);
     }
 
-    function endVoting() public onlyOwner votingClosed {
-        votingStarted = false;
-        emit VotingEnded(block.timestamp);
+    function endVoting() public onlyOwner {
+        require(votingStarted, "Voting has not started yet");
+        require(!votingEnded, "Voting has already ended");
+
+        votingEnded = true;
+        emit VotingEnded(block.timestamp); // Emit the event with the current timestamp
     }
 
     function addVoter(address _voterAddress) public onlyAdmin {
@@ -136,7 +141,7 @@ contract DecentralizedVoting {
     function getVotingStatus() public view returns (string memory) {
         if (!votingStarted) {
             return "Voting has not started";
-        } else if (block.timestamp >= votingEndTime) {
+        } else if (votingEnded || block.timestamp >= votingEndTime) {
             return "Voting has ended";
         } else {
             return "Voting is ongoing";
